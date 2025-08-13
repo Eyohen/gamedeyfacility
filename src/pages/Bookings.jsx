@@ -1,4 +1,4 @@
-// pages/Bookings.jsx - Integrated with Backend
+// pages/Bookings.jsx - Integrated with Backend for facility page
 import React, { useState, useEffect } from 'react';
 import {
   Calendar,
