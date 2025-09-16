@@ -26,6 +26,7 @@ import Community from './pages/Community';
 import CreateCommunity from './pages/CreateCommunity';
 import CommunityPost from './pages/CommunityPost';
 import FinancialOverview from './pages/FinancialOverview';
+import ViewBooking from './pages/ViewBooking';
 
 
 
@@ -79,6 +80,13 @@ function App() {
             </DashboardLayout>
           } />
 
+
+
+          <Route path="/booking-details/:bookingId" element={
+            <DashboardLayout>
+              <ViewBooking />
+            </DashboardLayout>
+          } />
 
                <Route path="/community" element={
             <DashboardLayout>
