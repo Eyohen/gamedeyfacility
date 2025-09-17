@@ -33,7 +33,7 @@
 // // MenuItem Component - Modified to handle special case for logout
 // const MenuItem = ({ icon, title, path, collapsed, active, onClick }) => {
 //   const { darkMode } = useDarkMode();
-  
+
 //   // If onClick is provided, use a button instead of a Link
 //   if (onClick) {
 //     return (
@@ -50,7 +50,7 @@
 //       </button>
 //     );
 //   }
-  
+
 //   // Regular menu item with Link
 //   return (
 //     <Link 
@@ -83,10 +83,10 @@
 //   const handleLogout = () => {
 //     // Clear access token from localStorage
 //     localStorage.removeItem("access_token");
-    
+
 //     // Call the logout function from AuthContext
 //     logout();
-    
+
 //     // Navigate to the home/login page
 //     navigate("/");
 //   };
@@ -137,7 +137,7 @@
 //               active={currentPath === item.path}
 //             />
 //           ))}
-          
+
 //           {/* Logout Item - Special handling */}
 //           <MenuItem 
 //             icon={<LogOut size={20} />} 
@@ -160,14 +160,14 @@
 //           </h1>
 //           <div className="flex items-center gap-4">
 //             {/* Theme Toggle Button */}
-           
-            
+
+
 //             <button className={`p-2 ${
 //               darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-500 hover:text-black'
 //             } rounded-full`}>
 //               <Bell size={20} />
 //             </button>
-            
+
 //             <div className="flex items-center gap-2">
 //               <div className={`w-8 h-8 ${
 //                 darkMode ? 'bg-gray-700' : 'bg-gray-200'
@@ -199,7 +199,7 @@
 
 // src/components/dashboard/DashboardLayout.jsx
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Bell,
   User,
   Menu,
@@ -222,11 +222,11 @@ import profile from '../../assets/profile.png';
 
 // MenuItem Component - Modified for mobile responsiveness
 const MenuItem = ({ icon, title, path, collapsed, active, onClick, isMobile }) => {
-  
+
   // If onClick is provided, use a button instead of a Link
   if (onClick) {
     return (
-      <button 
+      <button
         onClick={onClick}
         className="flex items-center w-full px-3 sm:px-4 py-2 sm:py-3 text-left rounded-xl text-gray-500 hover:bg-gray-50 hover:text-black font-semibold transition-colors text-sm sm:text-base"
       >
@@ -235,16 +235,15 @@ const MenuItem = ({ icon, title, path, collapsed, active, onClick, isMobile }) =
       </button>
     );
   }
-  
+
   // Regular menu item with Link
   return (
-    <Link 
+    <Link
       to={path}
-      className={`flex items-center w-full px-3 sm:px-4 py-2 sm:py-3 text-left rounded-xl ${
-        active 
-          ? 'bg-[#7042D2] text-white font-semibold border-r-[4px] sm:border-r-[6px] border-b-[2px] sm:border-b-[4px] border-black' 
+      className={`flex items-center w-full px-3 sm:px-4 py-2 sm:py-3 text-left rounded-xl ${active
+          ? 'bg-[#7042D2] text-white font-semibold border-r-[4px] sm:border-r-[6px] border-b-[2px] sm:border-b-[4px] border-black'
           : 'text-black font-normal hover:bg-gray-50 hover:text-black border-2 border-black'
-      } transition-colors text-sm sm:text-base`}
+        } transition-colors text-sm sm:text-base`}
     >
       <span className="flex-shrink-0 text-lg sm:text-xl">{icon}</span>
       {!collapsed && <span className="ml-2 sm:ml-3 truncate">{title}</span>}
@@ -269,7 +268,7 @@ const DashboardLayout = ({ children }) => {
         setCollapsed(true);
       }
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -294,7 +293,7 @@ const DashboardLayout = ({ children }) => {
   const menuItems = [
     { path: "/dashboard", title: "Dashboard", icon: <LayoutDashboard size={isMobile ? 18 : 20} /> },
     { path: "/facilities", title: "Facilities", icon: <img src={facilities} className="w-4 h-4 sm:w-5 sm:h-5" alt="Facilities" /> },
-    { path: "/bookings", title: "Bookings", icon: <img src={bookings} className="w-4 h-4 sm:w-5 sm:h-5" alt="Bookings" /> },  
+    { path: "/bookings", title: "Bookings", icon: <img src={bookings} className="w-4 h-4 sm:w-5 sm:h-5" alt="Bookings" /> },
     { path: "/community", title: "Community", icon: <img src={community} className="w-4 h-4 sm:w-5 sm:h-5" alt="Community" /> },
     { path: "/financial-overview", title: "Financial Overview", icon: <img src={financialoverview} className="w-4 h-4 sm:w-5 sm:h-5" alt="Financial" /> },
     { path: "/profile", title: "Profile", icon: <img src={reviews} className="w-4 h-4 sm:w-5 sm:h-5" alt="Profile" /> },
@@ -310,7 +309,7 @@ const DashboardLayout = ({ children }) => {
     <div className="flex h-screen overflow-hidden bg-gray-100 text-gray-800">
       {/* Mobile Overlay */}
       {isMobile && mobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         />
@@ -318,10 +317,9 @@ const DashboardLayout = ({ children }) => {
 
       {/* Sidebar */}
       <div className={`
-        ${isMobile 
-          ? `fixed left-0 top-0 h-full z-30 transform transition-transform duration-300 ease-in-out ${
-              mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-            }` 
+        ${isMobile
+          ? `fixed left-0 top-0 h-full z-30 transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`
           : 'relative'
         }
         ${collapsed && !isMobile ? 'w-16' : 'w-64'} 
@@ -333,20 +331,20 @@ const DashboardLayout = ({ children }) => {
           {(!collapsed || isMobile) && (
             <div className="flex items-center">
               <img src={logo} className='w-24 sm:w-32 md:w-36' alt="Logo" />
-              
+
             </div>
           )}
-          
+
           {isMobile ? (
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(false)}
               className="p-2 rounded-md text-gray-500 hover:text-gray-700"
             >
               <X size={20} />
             </button>
           ) : (
-            <button 
-              onClick={() => setCollapsed(!collapsed)} 
+            <button
+              onClick={() => setCollapsed(!collapsed)}
               className="text-gray-500 hover:text-black p-1 rounded-md"
             >
               {collapsed ? <Menu size={20} /> : <X size={20} />}
@@ -357,21 +355,21 @@ const DashboardLayout = ({ children }) => {
         {/* Menu Items */}
         <nav className="flex-1 py-2 sm:py-4 px-2 space-y-2 sm:space-y-4 overflow-y-auto">
           {menuItems.map((item) => (
-            <MenuItem 
+            <MenuItem
               key={item.path}
-              icon={item.icon} 
-              title={item.title} 
+              icon={item.icon}
+              title={item.title}
               path={item.path}
-              collapsed={collapsed && !isMobile} 
+              collapsed={collapsed && !isMobile}
               active={currentPath === item.path}
               isMobile={isMobile}
             />
           ))}
-          
+
           {/* Logout Item */}
-          <MenuItem 
-            icon={<LogOut size={isMobile ? 18 : 20} />} 
-            title="Logout" 
+          <MenuItem
+            icon={<LogOut size={isMobile ? 18 : 20} />}
+            title="Logout"
             collapsed={collapsed && !isMobile}
             onClick={handleLogout}
             isMobile={isMobile}
@@ -384,7 +382,7 @@ const DashboardLayout = ({ children }) => {
         {/* Header */}
         <div className="bg-gray-100">
           <header className="bg-white rounded-t-xl sm:rounded-t-3xl mt-2 sm:mt-4 py-3 sm:py-4 px-4 sm:px-6 flex items-center justify-between shadow-sm">
-            
+
             {/* Mobile Menu Button & Title */}
             <div className="flex items-center">
               {isMobile && (
@@ -399,24 +397,27 @@ const DashboardLayout = ({ children }) => {
                 {getPageTitle()}
               </h1>
             </div>
-            
+
             {/* Header Actions */}
             <div className="flex items-center gap-2 sm:gap-4">
-                <p>Facility</p>
+              <p>Facility</p>
               <button className="p-2 text-gray-500 hover:text-black rounded-full">
                 <Bell size={18} className="sm:w-5 sm:h-5" />
               </button>
-              
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                  <User size={14} className="sm:w-4 sm:h-4" />
+
+
+              <Link to={'/profile'}>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <User size={14} className="sm:w-4 sm:h-4" />
+                  </div>
+                  {!isMobile && (
+                    <span className="text-xs sm:text-sm font-medium text-gray-800 hidden md:inline">
+                      {user?.firstName} {user?.lastName}
+                    </span>
+                  )}
                 </div>
-                {!isMobile && (
-                  <span className="text-xs sm:text-sm font-medium text-gray-800 hidden md:inline">
-                    {user?.firstName} {user?.lastName}
-                  </span>
-                )}
-              </div>
+              </Link>
             </div>
           </header>
         </div>

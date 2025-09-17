@@ -1130,11 +1130,11 @@ const Profile = () => {
         </div>
       )}
       
-      {error && (
+      {/* {error && (
         <div className="bg-red-50 border border-red-200 rounded-md p-3 mb-4">
           <span className="text-sm text-red-700">{error}</span>
         </div>
-      )}
+      )} */}
 
       {/* Profile Header */}
       <div className="bg-white rounded-lg shadow-md border border-black border-r-[6px] border-b-[4px] p-6 mb-6">
